@@ -54,9 +54,9 @@ void ofxRetinaTrueTypeFont::setLineHeight(float height){
 //}
 //
 //
-//float ofxRetinaTrueTypeFont::getLineHeight(){
-//	return  ofTrueTypeFont::getLineHeight() * scale;
-//}
+float ofxRetinaTrueTypeFont::getLineHeight(){
+	return  ofTrueTypeFont::getLineHeight() * scale;
+}
 //
 //
 //float ofxRetinaTrueTypeFont::getLetterSpacing(){
@@ -64,6 +64,21 @@ void ofxRetinaTrueTypeFont::setLineHeight(float height){
 //}
 
 
+//-----------------------------------------------------------
+float ofxRetinaTrueTypeFont::stringWidth(string c) {
+    ofRectangle rect = getStringBoundingBox(c, 0,0);
+    return rect.width;
+}
+
+
+//-----------------------------------------------------------
+float ofxRetinaTrueTypeFont::stringHeight(string c) {
+    ofRectangle rect = getStringBoundingBox(c, 0,0);
+    return rect.height;
+}
+
+
+//-----------------------------------------------------------
 ofRectangle ofxRetinaTrueTypeFont::getStringBoundingBox(string s, float x, float y){
 	ofRectangle r =  ofTrueTypeFont::getStringBoundingBox(s, x, y);
 	r.width *= scale;
